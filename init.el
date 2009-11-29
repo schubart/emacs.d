@@ -34,6 +34,16 @@
       scroll-conservatively 10000)
 
 ;;
+;; org-mode
+;;
+;; Default:  Here:
+;; --------  -------
+;; * Foo     * Foo
+;; ** Bar     * Bar
+;; *** Baz     * Baz
+(setq org-hide-leading-stars t)
+
+;;
 ;; C++
 ;;
 
