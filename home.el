@@ -18,11 +18,6 @@
 (setq initial-frame-alist '((width . 80)
 			    (height . 71)))
 
-;; Load Haskell mode.
-;(load "~/haskell-mode-2.4/haskell-site-file")
-;; Tell Haskell mode which interpreter to use.
-;(set-variable 'haskell-program-name "ghci")
-
 ;; Magit.
 ;(setq load-path (cons "~/magit/mainline" load-path))
 ;(autoload 'magit-status "magit" nil t)

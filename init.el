@@ -65,6 +65,21 @@
 ;; Indent with 4 chars as per perlstyle(1).
 (setq cperl-indent-level 4)
 
+;;
+;; Haskell
+;;
+
+(load "~/.emacs.d/plugins/haskell-mode-2.7.0/haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+;; Choose exactly one of three indentation modes.
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+;;
+;; Home vs. work.
+;;
+
 ;; Settings specific to my home PC.
 (if (file-exists-p "~/.emacs.d/home.el") (load-library "~/.emacs.d/home.el"))
 ;; Settings specific to my work PC.
