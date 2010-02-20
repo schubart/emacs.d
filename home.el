@@ -14,18 +14,15 @@
 ;; Mac: Use Command key as meta.
 (setq ns-command-modifier (quote meta))
 
-;; Set up frame to show two 80-column windows side by side.
-(setq initial-frame-alist '((top . 0)
-			    (left . 80)
-			    (width . 166)
-			    (height . 57)))
-(split-window-horizontally)
+;; Window size.
+(setq initial-frame-alist '((width . 80)
+			    (height . 71)))
 
 ;; Load Haskell mode.
-(load "~/haskell-mode-2.4/haskell-site-file")
+;(load "~/haskell-mode-2.4/haskell-site-file")
 ;; Tell Haskell mode which interpreter to use.
-(set-variable 'haskell-program-name "ghci")
+;(set-variable 'haskell-program-name "ghci")
 
 ;; Magit.
-(setq load-path (cons "~/magit/mainline" load-path))
-(autoload 'magit-status "magit" nil t)
+;(setq load-path (cons "~/magit/mainline" load-path))
+;(autoload 'magit-status "magit" nil t)
