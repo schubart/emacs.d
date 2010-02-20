@@ -1,3 +1,6 @@
 haskell-mode:
 http://projects.haskell.org/haskellmode-emacs/
 
+paredit:
+http://mumble.net/~campbell/emacs/paredit.el
+http://www.emacswiki.org/emacs/ParEdit

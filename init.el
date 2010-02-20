@@ -33,6 +33,9 @@
 (setq scroll-step 1
       scroll-conservatively 10000)
 
+;; Add plugins directory to load path.
+(setq load-path (cons "~/.emacs.d/plugins" load-path))
+
 ;;
 ;; org-mode
 ;;
@@ -75,6 +78,16 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+;;
+;; ParEdit for lisps.
+;;
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 
 ;;
 ;; Home vs. work.
