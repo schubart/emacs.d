@@ -13,6 +13,10 @@
 ;; Color trailing whitespace.
 (setq-default show-trailing-whitespace t)
 
+;; Make the whole comment red, not just the leading // or ;; or #.
+;; Seems relevant ony when running in a terminal.
+(set-face-foreground 'font-lock-comment-face "red")
+
 ;; Show column number in status bar.
 (setq column-number-mode t)
 
