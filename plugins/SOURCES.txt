@@ -4,3 +4,6 @@ http://projects.haskell.org/haskellmode-emacs/
 paredit:
 http://mumble.net/~campbell/emacs/paredit.el
 http://www.emacswiki.org/emacs/ParEdit
+
+smex:
+http://github.com/nonsequitur/smex/blob/master/smex.el?raw=true
