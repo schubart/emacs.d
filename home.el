@@ -20,7 +20,3 @@
 ;; Window size.
 (setq initial-frame-alist '((width . 80)
 			    (height . 71)))
-
-;; Magit.
-;(setq load-path (cons "~/magit/mainline" load-path))
-;(autoload 'magit-status "magit" nil t)

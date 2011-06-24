@@ -90,6 +90,11 @@
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 
 ;;
+;; Common Lisp
+;;
+(setq lisp-indent-function 'common-lisp-indent-function)
+
+;;
 ;; Smex: https://github.com/nonsequitur/smex/
 ;;
 (require 'smex)
