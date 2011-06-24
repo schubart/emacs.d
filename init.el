@@ -98,6 +98,17 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ;;
+;; Magit
+;;
+
+(setq load-path (cons "~/.emacs.d/plugins/magit-1.0.0" load-path))
+(load-library "magit")
+(global-set-key (kbd "M-m") 'magit-status)
+;; Default seems to be black and white, make it a bit more colorful.
+(set-face-foreground 'magit-diff-add "green")
+(set-face-foreground 'magit-diff-del "red")
+
+;;
 ;; Home vs. work.
 ;;
 

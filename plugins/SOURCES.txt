@@ -7,3 +7,6 @@ http://www.emacswiki.org/emacs/ParEdit
 
 smex:
 http://github.com/nonsequitur/smex/blob/master/smex.el?raw=true
+
+Magit:
+https://github.com/magit/magit/downloads/magit-1.0.0.tar.gz

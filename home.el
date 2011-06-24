@@ -4,6 +4,9 @@
 ;; "make install"
 ;; Copy to /Applications
 
+;; GNU Emacs 23.2:
+;; "sudo port install emacs-app"
+
 ;; Mac: Add MacPorts to path (because Emacs.app does not get launched
 ;; via a shell, so ~/.profile and similar files don't get evaluated.)
 ;;
