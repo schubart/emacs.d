@@ -114,6 +114,12 @@
 (set-face-foreground 'magit-diff-del "red")
 
 ;;
+;; Compilation
+;;
+(global-set-key (kbd "M-c") 'recompile)
+(setq compilation-scroll-output 'first-error)
+
+;;
 ;; Home vs. work.
 ;;
 
