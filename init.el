@@ -141,6 +141,16 @@
 (setq compilation-scroll-output 'first-error)
 
 ;;
+;; Yasnippet
+;;
+(setq load-path (cons "~/.emacs.d/plugins/yasnippet-0.6.1c" load-path))
+(require 'yasnippet)
+(yas/initialize)
+(setq yas/root-directory '("~/.emacs.d/snippets"
+                           "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"))
+(mapc 'yas/load-directory yas/root-directory)
+
+;;
 ;; Home vs. work.
 ;;
 
