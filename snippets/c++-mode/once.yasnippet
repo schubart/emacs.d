@@ -1,8 +1,15 @@
 #name : #ifndef XXX; #define XXX; #endif
+#contributor: Michael Schubart
 # --
-#ifndef ${1:_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H_}
+#ifndef ${1:`(if (string-match "^.*/shadows?/\\\(.*?\\\)/\\\(.*?\\\)/.*/\\\(.*?\\\)\.H$" buffer-file-name)
+                 (let ((meta          (match-string 1 buffer-file-name))
+                       (project       (match-string 2 buffer-file-name))
+                       (file-sans-ext (match-string 3 buffer-file-name)))
+                  (concat meta "_" project "_" file-sans-ext))
+                 ; Fall-back from Yasnippet distribution:
+                 (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H}
 #define $1
 
 $0
 
-#endif /*** FOO ***/
+#endif
