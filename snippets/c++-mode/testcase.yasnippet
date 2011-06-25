@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: CPPUnit TestCase
+# expand-env: ((yas/indent-line 'fixed))
+# --
+#include <cppunit/extensions/HelperMacros.h>
+#include <${1:`(if (string-match "^.*/shadows?/\\\(.*?\\\)/\\\(.*?\\\)/.*/\\\(.*?\\\)\TestCase.C$" buffer-file-name)
+                 (let ((meta    (match-string 1 buffer-file-name))
+                       (project (match-string 2 buffer-file-name))
+                       (class   (match-string 3 buffer-file-name)))
+                  (concat meta "/" project "/" class))
+                 "?")`.H}>
+
+#define is(e, a) CPPUNIT_ASSERT_EQUAL(e, a);
+
+struct ${2:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} : public CPPUNIT_NS::TestFixture
+{
+  CPPUNIT_TEST_SUITE($2);
+  CPPUNIT_TEST(test${3:Foo});
+  CPPUNIT_TEST_SUITE_END();
+
+public:
+  void test$3()
+  {
+    $0
+  }
+};
+
+CPPUNIT_TEST_SUITE_REGISTRATION($2);
