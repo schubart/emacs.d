@@ -42,9 +42,9 @@
 (setq-default indent-tabs-mode nil)
 
 ;; ido mode for visiting files and switching buffers.
-;(ido-mode t)
+(ido-mode t)
 ;; Any item containing the entered characters matches.
-;(setq ido-enable-flex-matching t)
+(setq ido-enable-flex-matching t)
 
 ;; Replace default buffer menu (C-x C-b) with ibuffer.
 (defalias 'list-buffers 'ibuffer)
@@ -157,7 +157,7 @@
 (require 'anything-startup)
 (global-set-key "\M-1" 'anything)
 (global-set-key (kbd "M-x")     'anything-M-x)
-(global-set-key (kbd "C-x C-f") 'anything-for-files)
+;(global-set-key (kbd "C-x C-f") 'anything-for-files)
 (global-set-key (kbd "C-x b")   'anything-for-buffers)
 
 (setq anything-sources
