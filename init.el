@@ -60,6 +60,16 @@
 ;;
 ;; org-mode
 ;;
+(setq load-path (cons "~/.emacs.d/plugins/org-7.6/lisp" load-path))
+(require 'org-install)
+; Key bindings as recommended by the manual.
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(setq org-default-notes-file "~/org/notes.org")
+(setq org-agenda-files (list "~/org/notes.org"))
+
 ;; Default:  Here:
 ;; --------  -------
 ;; * Foo     * Foo
