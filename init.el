@@ -165,6 +165,11 @@
 ;;
 (setq load-path (cons "~/.emacs.d/plugins/vimpulse" load-path))
 (require 'vimpulse)
+;; Disable vi keys in the minibuffer (messed up ido stuff otherwise.)
+;; http://gitorious.org/vimpulse/pages/Tips#Disable+vi+keys+in+the+minibuffer
+(remove-hook 'minibuffer-setup-hook 'viper-minibuffer-setup-sentinel)
+(defadvice viper-set-minibuffer-overlay (around vimpulse activate) nil)
+;;(define-key minibuffer-local-map (kbd "ESC") 'abort-recursive-edit)
 
 ;;
 ;; Home vs. work.
