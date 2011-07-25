@@ -128,7 +128,7 @@
 ;;
 ;; Smex: https://github.com/nonsequitur/smex/
 ;;
-;(require 'smex)
+(require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -159,6 +159,12 @@
 (setq yas/root-directory '("~/.emacs.d/snippets"
                            "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
+
+;;
+;; Vimpulse
+;;
+(setq load-path (cons "~/.emacs.d/plugins/vimpulse" load-path))
+(require 'vimpulse)
 
 ;;
 ;; Home vs. work.
