@@ -161,25 +161,6 @@
 (mapc 'yas/load-directory yas/root-directory)
 
 ;;
-;; Vimpulse
-;;
-(setq load-path (cons "~/.emacs.d/plugins/vimpulse" load-path))
-(require 'vimpulse)
-;; Disable vi keys in the minibuffer (messed up ido stuff otherwise.)
-;; http://gitorious.org/vimpulse/pages/Tips#Disable+vi+keys+in+the+minibuffer
-(remove-hook 'minibuffer-setup-hook 'viper-minibuffer-setup-sentinel)
-(defadvice viper-set-minibuffer-overlay (around vimpulse activate) nil)
-(define-key minibuffer-local-map (kbd "ESC") 'abort-recursive-edit)
-;; Viper vs. minibuffer:
-;; http://stackoverflow.com/questions/5284933/getting-viper-mode-to-play-well-with-magit-key-mode/5285343#5285343
-(when (boundp 'viper-emacs-state-mode-list)
-  (mapc (lambda (mode)
-          (add-to-list 'viper-emacs-state-mode-list mode))
-        '(magit-key-mode
-          magit-log-edit-mode ;; Actually, just defaulting to insert-mode would be fine.
-          )))
-
-;;
 ;; Home vs. work.
 ;;
 
