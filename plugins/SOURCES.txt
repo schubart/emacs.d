@@ -9,7 +9,7 @@ smex:
 http://github.com/nonsequitur/smex/blob/master/smex.el?raw=true
 
 Magit:
-https://github.com/magit/magit/downloads/magit-1.0.0.tar.gz
+https://github.com/magit/magit/downloads/magit-1.1.1.tar.gz
 
 Yasnippet:
 http://yasnippet.googlecode.com/files/yasnippet-0.6.1c.tar.bz2
