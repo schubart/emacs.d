@@ -17,5 +17,5 @@ http://yasnippet.googlecode.com/files/yasnippet-0.6.1c.tar.bz2
 Org-Mode:
 http://orgmode.org/org-7.6.zip
 
-Vimpulse:
-git clone git://gitorious.org/vimpulse/vimpulse.git
+ace-jump-mode:
+https://raw.github.com/winterTTr/ace-jump-mode/master/ace-jump-mode.el
