@@ -19,3 +19,6 @@ http://orgmode.org/org-7.6.zip
 
 ace-jump-mode:
 https://raw.github.com/winterTTr/ace-jump-mode/master/ace-jump-mode.el
+
+expand-region:
+https://github.com/magnars/expand-region.el
