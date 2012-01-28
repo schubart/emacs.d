@@ -167,13 +167,6 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;;
-;; expand-region
-;;
-(setq load-path (cons "~/.emacs.d/plugins/expand-region.el" load-path))
-(require 'expand-region)
-(global-set-key (kbd "C-@") 'er/expand-region)
-
-;;
 ;; Home vs. work.
 ;;
 
