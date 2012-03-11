@@ -180,6 +180,14 @@
 (add-hook 'auto-save-hook 'my-desktop-save)
 
 ;;
+;; Perforce
+;;
+
+;; When opening a file for edit, don't pop up a window that shows who
+;; else is editing this file.
+(setq p4-verbose nil)
+
+;;
 ;; Home vs. work.
 ;;
 
