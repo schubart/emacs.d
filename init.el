@@ -64,7 +64,6 @@
 ;;
 ;; org-mode
 ;;
-(setq load-path (cons "~/.emacs.d/plugins/org-7.6/lisp" load-path))
 (require 'org-install)
 ; Key bindings as recommended by the manual.
 (global-set-key "\C-cl" 'org-store-link)
