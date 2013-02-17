@@ -111,7 +111,7 @@
 ;; Magit
 ;;
 
-(setq load-path (cons "~/.emacs.d/plugins/magit-1.1.1" load-path))
+(setq load-path (cons "~/.emacs.d/plugins/magit-1.2.0" load-path))
 (load-library "magit")
 (global-set-key (kbd "M-m") 'magit-status)
 ;; Default seems to be black and white, make it a bit more colorful.
