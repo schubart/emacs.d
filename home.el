@@ -1,11 +1,4 @@
-;; GNU Emacs 23.1:
-;; Source from gnu.org
-;; Compile with --with-ns
-;; "make install"
-;; Copy to /Applications
-
-;; GNU Emacs 23.2:
-;; "sudo port install emacs-app"
+;; GNU Emacs 24.1 from http://emacsformacosx.com/
 
 ;; Mac: Add MacPorts to path (because Emacs.app does not get launched
 ;; via a shell, so ~/.profile and similar files don't get evaluated.)
