@@ -100,11 +100,6 @@
 (setq cperl-indent-level 4)
 
 ;;
-;; Common Lisp
-;;
-(setq lisp-indent-function 'common-lisp-indent-function)
-
-;;
 ;; Smex: https://github.com/nonsequitur/smex/
 ;;
 (require 'smex)
