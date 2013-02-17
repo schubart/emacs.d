@@ -117,9 +117,6 @@
 (setq load-path (cons "~/.emacs.d/plugins/magit-1.2.0" load-path))
 (load-library "magit")
 (global-set-key (kbd "M-m") 'magit-status)
-;; Default seems to be black and white, make it a bit more colorful.
-(set-face-foreground 'magit-diff-add "green")
-(set-face-foreground 'magit-diff-del "red")
 
 ;;
 ;; Compilation
@@ -166,3 +163,19 @@
 (if (file-exists-p "~/.emacs.d/home.el") (load-library "~/.emacs.d/home.el"))
 ;; Settings specific to my work PC.
 (if (file-exists-p "~/.emacs.d/work.el") (load-library "~/.emacs.d/work.el"))
+
+;; Customize.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(magit-diff-add ((t (:foreground "green"))))
+ '(magit-diff-del ((t (:foreground "red"))))
+ '(magit-item-highlight ((t (:underline t)))))
