@@ -100,16 +100,6 @@
 (setq cperl-indent-level 4)
 
 ;;
-;; ParEdit for lisps.
-;;
-(autoload 'paredit-mode "paredit"
-  "Minor mode for pseudo-structurally editing Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-
-;;
 ;; Common Lisp
 ;;
 (setq lisp-indent-function 'common-lisp-indent-function)
