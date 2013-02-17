@@ -1,3 +1,4 @@
+;; test
 ;; Don't start with *GNU Emacs* (about) buffer.
 (setq inhibit-startup-message t)
 
