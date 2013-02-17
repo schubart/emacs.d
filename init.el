@@ -100,17 +100,6 @@
 (setq cperl-indent-level 4)
 
 ;;
-;; Haskell
-;;
-
-(load "~/.emacs.d/plugins/haskell-mode-2.7.0/haskell-site-file")
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;; Choose exactly one of three indentation modes.
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-
-;;
 ;; ParEdit for lisps.
 ;;
 (autoload 'paredit-mode "paredit"
