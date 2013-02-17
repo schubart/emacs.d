@@ -49,6 +49,10 @@
 ;; Replace default buffer menu (C-x C-b) with ibuffer.
 (defalias 'list-buffers 'ibuffer)
 
+;; Use bits of path to make buffer names unique.
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
 ;; Smooth scrolling.
 ;; http://www.emacswiki.org/emacs/SmoothScrolling
 (setq scroll-step 1
