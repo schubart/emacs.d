@@ -1,4 +1,4 @@
-;; GNU Emacs 24.1 from http://emacsformacosx.com/
+;; GNU Emacs 24.3 from "port install emacs-app"
 
 ;; Mac: Add MacPorts to path (because Emacs.app does not get launched
 ;; via a shell, so ~/.profile and similar files don't get evaluated.)
