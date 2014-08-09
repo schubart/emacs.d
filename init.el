@@ -1,6 +1,29 @@
 ;; Don't start with *GNU Emacs* (about) buffer.
 (setq inhibit-startup-message t)
 
+;;
+;; Package management.
+;;
+
+(require 'package)
+(setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(package-initialize)
+
+;; Installs the package if it's not installed.
+(defun schubart-package-ensure-installed (package)
+  ;; Make sure we have the list of available packages.
+  (unless package-archive-contents
+    (package-refresh-contents))
+  ;; Install package if it's not installed.
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; Packages that don't require any further initialisation:
+(schubart-package-ensure-installed 'fill-column-indicator)
+(schubart-package-ensure-installed 'lua-mode)
+(schubart-package-ensure-installed 'yaml-mode)
+
 ;; Keep version controlled backups in separate directory.
 ;; http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
@@ -41,11 +64,6 @@
 ;; http://www.jwz.org/doc/tabs-vs-spaces.html
 (setq-default indent-tabs-mode nil)
 
-;; ido mode for visiting files and switching buffers.
-(ido-mode t)
-;; Any item containing the entered characters matches.
-(setq ido-enable-flex-matching t)
-
 ;; Replace default buffer menu (C-x C-b) with ibuffer.
 (defalias 'list-buffers 'ibuffer)
 
@@ -57,9 +75,6 @@
 ;; http://www.emacswiki.org/emacs/SmoothScrolling
 (setq scroll-step 1
       scroll-conservatively 10000)
-
-;; Add plugins directory to load path.
-(setq load-path (cons "~/.emacs.d/plugins" load-path))
 
 ;;
 ;; org-mode
@@ -81,6 +96,41 @@
 (setq org-hide-leading-stars t)
 
 ;;
+;; Ido
+;;
+
+;; ido mode for visiting files and switching buffers.
+(ido-mode t)
+;; Everywhere.
+(schubart-package-ensure-installed 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+;; flx (not flex) matching.
+(schubart-package-ensure-installed 'flx-ido)
+(flx-ido-mode 1)
+;; Disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+;; Any item containing the entered characters matches.
+(setq ido-enable-flex-matching t)
+;; Vertical.
+(schubart-package-ensure-installed 'ido-vertical-mode)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+
+;;
+;; Smex: Like ido for M-x
+;;
+
+(schubart-package-ensure-installed 'smex)
+(global-set-key (kbd "M-x") 'smex)
+
+;;
+;; Projectile
+;;
+
+(schubart-package-ensure-installed 'projectile)
+(projectile-global-mode)
+
+;;
 ;; C++
 ;;
 
@@ -91,6 +141,25 @@
 ;;     foo();     foo();
 ;;   }          }
 (c-set-offset 'substatement-open 0)
+
+;; Default:         Here:
+;; ---------------  ------------
+;; namespace foo {  namespace foo {
+;;   bar() {}       bar() {}
+;; }                }
+(c-set-offset 'innamespace 0)
+
+;;
+;; GNU Global (gtags)
+;;
+;; http://www.gnu.org/software/global/
+;; https://github.com/leoliu/ggtags
+;;
+(schubart-package-ensure-installed 'ggtags)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (ggtags-mode 1))))
 
 ;;
 ;; Perl
@@ -103,20 +172,29 @@
 (setq cperl-indent-level 4)
 
 ;;
-;; Smex: https://github.com/nonsequitur/smex/
-;;
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;;
 ;; Magit
 ;;
-
-(setq load-path (cons "~/.emacs.d/plugins/magit-1.2.0" load-path))
-(load-library "magit")
+(schubart-package-ensure-installed 'magit)
 (global-set-key (kbd "M-m") 'magit-status)
+
+;;
+;; git-gutter+: https://github.com/nonsequitur/git-gutter-plus
+;;
+(schubart-package-ensure-installed 'git-gutter+)
+;; Turn it on.
+(global-git-gutter+-mode t)
+;; Hide gutter if there are no changes.
+(setq git-gutter+-hide-gutter t)
+
+;;
+;; w3m: Command line web browser.
+;;
+;; http://w3m.sourceforge.net/index.en.html
+;; http://emacs-w3m.namazu.org/
+;; http://beatofthegeek.com/2014/02/my-setup-for-using-emacs-as-web-browser.html
+;;
+(schubart-package-ensure-installed 'w3m)
+(setq browse-url-browser-function 'w3m-goto-url-new-session)
 
 ;;
 ;; Compilation
@@ -127,12 +205,8 @@
 ;;
 ;; Yasnippet
 ;;
-(setq load-path (cons "~/.emacs.d/plugins/yasnippet-0.6.1c" load-path))
-(require 'yasnippet)
-(yas/initialize)
-(setq yas/root-directory '("~/.emacs.d/snippets"
-                           "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"))
-(mapc 'yas/load-directory yas/root-directory)
+(schubart-package-ensure-installed 'yasnippet)
+(yas-global-mode 1)
 
 ;;
 ;; Desktop mode with automatic saving when Emacs is idle
@@ -151,9 +225,8 @@
 ;; Perforce
 ;;
 
-;; When opening a file for edit, don't pop up a window that shows who
-;; else is editing this file.
-(setq p4-verbose nil)
+(schubart-package-ensure-installed 'p4)
+(require 'p4)
 
 ;;
 ;; Home vs. work.
@@ -176,6 +249,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cperl-array-face ((t (:background "black" :foreground "yellow" :weight bold))))
+ '(cperl-hash-face ((t (:background "black" :foreground "Red" :slant italic :weight bold))))
+ '(flx-highlight-face ((t (:inherit font-lock-variable-name-face))))
  '(magit-diff-add ((t (:foreground "green"))))
  '(magit-diff-del ((t (:foreground "red"))))
  '(magit-item-highlight ((t (:underline t)))))
